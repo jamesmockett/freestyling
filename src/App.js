@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Global, jsx, css } from "@emotion/core";
+import styled from "@emotion/styled";
+import normalize from "normalize.css";
 
-function App() {
+/** @jsx jsx */
+
+const Text = styled.p`
+  color: ${props => props.color};
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Global styles={css`${normalize}`} />
+
+      <Text color="firebrick">FreeStyling</Text>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
