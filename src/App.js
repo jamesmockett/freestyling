@@ -25,6 +25,7 @@ const Cyan = 'hsl(194, 98%, 54%)';
 const Pink = 'hsl(320, 90%, 60%)';
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -93,6 +94,19 @@ const Explanation = styled.div`
   transform: translateY(-50%);
   padding: 32px 64px;
   background: hsl(194, 98%, 54%, 0.9);
+  border-radius: 8px;
+  pointer-events: none;
+`;
+
+const GameOver = styled.div`
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  width: 80%;
+  transform: translateY(-50%);
+  padding: 32px 64px;
+  background: hsl(320, 90%, 60%, 0.9);
+  border-radius: 8px;
   pointer-events: none;
 `;
 
@@ -115,6 +129,7 @@ const formatScore = score => {
 };
 
 const App = () => {
+  const [gameOver, endGame] = useState(false);
   const [explanationVisible, showExplanation] = useState(false);
   const [correctAnswer, correctAnswerSelected] = useState(false);
   const [score, setScore] = useState(0);
@@ -126,7 +141,7 @@ const App = () => {
   const images = require.context('./images', true);
 
   const nextQuestion = () => {
-    if (!explanationVisible) {
+    if (!explanationVisible || gameOver) {
       return;
     }
 
@@ -142,13 +157,13 @@ const App = () => {
         setLevelData(Quiz[level + 1]);
         setQuestionData(Quiz[level + 1].questions[0]);
       } else {
-        console.log('Quiz over');
+        endGame(true);
       }
     }
   };
 
   const checkAnswer = (event) => {
-    if (explanationVisible) {
+    if (explanationVisible || gameOver) {
       return false;
     }
 
@@ -188,6 +203,11 @@ const App = () => {
         </Comparison>
 
         <Text size="24">Which design is correct? 🤔</Text>
+
+        <GameOver hidden={!gameOver}>
+          <Text size="32">👾 GAME OVER 👾</Text>
+          <Text size="24">{formatScore(score)} points </Text>
+        </GameOver>
 
         <Footer>
           <Text size="20">{levelData.name} — {question + 1} / {levelData.questions.length}</Text>

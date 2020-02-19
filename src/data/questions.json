@@ -20,16 +20,22 @@
     "name": "Easy",
     "questions": [
       {
-        "imageLeft": "./modal-stretched-aspect-ratio.png",
-        "imageRight": "./modal-correct.png",
+        "imageLeft": "./nav-icons-misaligned.png",
+        "imageRight": "./nav-icons-correct.png",
         "correctImage": 2,
-        "explanation": "Image has incorrect aspect ratio"
+        "explanation": "Icons are misaligned."
       },
       {
-        "imageLeft": "./modal-buttons-misaligned.png",
-        "imageRight": "./modal-correct.png",
+        "imageLeft": "./banking-panel-incorrect-button-type.png",
+        "imageRight": "./banking-panel-correct.png",
         "correctImage": 2,
-        "explanation": "Buttons not left aligned."
+        "explanation": "Upload Statement should not be a destructive button."
+      },
+      {
+        "imageLeft": "./expense-correct.png",
+        "imageRight": "./expense-insufficient-contrast.png",
+        "correctImage": 1,
+        "explanation": "Form label lack sufficient contrast."
       },
       {
         "imageLeft": "./modal-correct.png",
