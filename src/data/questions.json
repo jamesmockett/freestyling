@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Tutorial",
+    "questions": [
+      {
+        "imageLeft": "./modal-correct.png",
+        "imageRight": "./modal-incorrect-font-colour.png",
+        "correctImage": 1,
+        "explanation": "Incorrect typeface and colours."
+      },
+      {
+        "imageLeft": "./modal-buttons-misaligned.png",
+        "imageRight": "./modal-correct.png",
+        "correctImage": 2,
+        "explanation": "Buttons not left aligned."
+      }
+    ]
+  },
+  {
+    "name": "Easy",
+    "questions": [
+      {
+        "imageLeft": "./modal-stretched-aspect-ratio.png",
+        "imageRight": "./modal-correct.png",
+        "correctImage": 2,
+        "explanation": "Image has incorrect aspect ratio"
+      },
+      {
+        "imageLeft": "./modal-buttons-misaligned.png",
+        "imageRight": "./modal-correct.png",
+        "correctImage": 2,
+        "explanation": "Buttons not left aligned."
+      },
+      {
+        "imageLeft": "./modal-correct.png",
+        "imageRight": "./modal-button-square-corners.png",
+        "correctImage": 1,
+        "explanation": "Secondary button doesn't have rounded corners."
+      }
+    ]
+  }
+]
